@@ -352,9 +352,7 @@ class AutoCompleteTextFieldState<T> extends State<AutoCompleteTextField> {
       Filter<T> filter, int maxAmount, String query) {
 
       if (query == "" || null == query) {
-        if(this.displaySuggestionsIfEmpty){
             return suggestions;
-        }
         return [];
     }
     suggestions = suggestions.where((item) => filter(item, query)).toList();
