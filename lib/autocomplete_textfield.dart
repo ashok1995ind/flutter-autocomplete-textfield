@@ -353,7 +353,6 @@ class AutoCompleteTextFieldState<T> extends State<AutoCompleteTextField> {
 
       if (query == "" || null == query) {
             return suggestions;
-        return [];
     }
     suggestions = suggestions.where((item) => filter(item, query)).toList();
     suggestions.sort(sorter);
