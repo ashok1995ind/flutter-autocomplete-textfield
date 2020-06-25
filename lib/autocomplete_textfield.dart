@@ -351,8 +351,12 @@ class AutoCompleteTextFieldState<T> extends State<AutoCompleteTextField> {
   List<T> getSuggestions(List<T> suggestions, Comparator<T> sorter,
       Filter<T> filter, int maxAmount, String query) {
 
-      if (query == "" || null == query) {
-            return suggestions;
+      if (query == "") {
+      suggestions.sort(sorter);
+      if (suggestions.length > maxAmount) {
+        suggestions = suggestions.sublist(0, maxAmount);
+      }
+      return suggestions;
     }
     suggestions = suggestions.where((item) => filter(item, query)).toList();
     suggestions.sort(sorter);
